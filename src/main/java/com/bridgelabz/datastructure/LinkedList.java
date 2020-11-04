@@ -101,6 +101,27 @@ public class LinkedList {
         }
         return count;
 	}
+	public void sort() {
+		INode tempNode=head,index=null;
+		Integer temp;
+		if(head == null)
+			return;
+		else {
+			while(tempNode != null) {
+				index=tempNode.getNext();
+				while(index != null) {
+					if ((Integer)tempNode.getKey() > (Integer)index.getKey()) {
+						temp=(Integer) tempNode.getKey();
+						tempNode.setKey(index.getKey());
+						index.setKey(temp);;					
+					}
+					index=index.getNext();
+				}
+				tempNode=tempNode.getNext();
+			}
+		}
+		
+	}
 	public void printMyNodes() {
 		StringBuffer nodes = new StringBuffer("All Nodes: ");
 		INode tempNode=head;

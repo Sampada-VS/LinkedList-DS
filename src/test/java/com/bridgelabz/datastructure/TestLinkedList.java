@@ -147,9 +147,29 @@ public class TestLinkedList {
 		linkedlist.printMyNodes();
 		int sizeOfList=linkedlist.size();
 		System.out.println("Size of linked list :"+sizeOfList);
-		boolean isInsertedAfterSearch= linkedlist.head.equals(firstNode) &&
+		boolean isDeletedAfterSearch= linkedlist.head.equals(firstNode) &&
 				linkedlist.head.getNext().equals(secondNode) &&
 				linkedlist.tail.equals(fourthNode);
-		assertTrue(isInsertedAfterSearch);
+		assertTrue(isDeletedAfterSearch);
+	}
+	@Test
+	public void givenLinkedList_WhenSorted_ShouldReturnOrderedLinkedList() {
+		MyNode<Integer> firstNode = new MyNode<>(56);
+		MyNode<Integer> secondNode = new MyNode<>(30);
+		MyNode<Integer> thirdNode = new MyNode<>(40);
+		MyNode<Integer> fourthNode = new MyNode<>(70);
+		LinkedList linkedlist= new LinkedList();
+		linkedlist.add(firstNode);
+		linkedlist.append(secondNode);
+		linkedlist.append(thirdNode);
+		linkedlist.append(fourthNode);
+		linkedlist.sort();
+		System.out.println("Linked list after sorting  == ");
+		linkedlist.printMyNodes();
+		boolean isSorted= linkedlist.head.equals(firstNode) &&
+				linkedlist.head.getNext().equals(secondNode) &&
+				linkedlist.head.getNext().getNext().equals(thirdNode) &&
+				linkedlist.tail.equals(fourthNode);
+		assertTrue(isSorted);
 	}
 }
