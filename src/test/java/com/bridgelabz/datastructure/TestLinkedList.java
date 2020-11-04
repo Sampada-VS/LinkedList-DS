@@ -130,4 +130,26 @@ public class TestLinkedList {
 				linkedlist.tail.equals(thirdNode);
 		assertTrue(isInsertedAfterSearch);
 	}
+	@Test
+	public void givenLinkedList_WhenSearchElementAndDeleteIt_ShouldReturnTrue() {
+		MyNode<Integer> firstNode = new MyNode<>(56);
+		MyNode<Integer> secondNode = new MyNode<>(30);
+		MyNode<Integer> thirdNode = new MyNode<>(40);
+		MyNode<Integer> fourthNode = new MyNode<>(70);
+		LinkedList linkedlist= new LinkedList();
+		linkedlist.add(firstNode);
+		linkedlist.append(secondNode);
+		linkedlist.append(thirdNode);
+		linkedlist.append(fourthNode);
+
+		linkedlist.searchAndDelete(40);
+		System.out.println("Linked list after deleting searched element  == ");
+		linkedlist.printMyNodes();
+		int sizeOfList=linkedlist.size();
+		System.out.println("Size of linked list :"+sizeOfList);
+		boolean isInsertedAfterSearch= linkedlist.head.equals(firstNode) &&
+				linkedlist.head.getNext().equals(secondNode) &&
+				linkedlist.tail.equals(fourthNode);
+		assertTrue(isInsertedAfterSearch);
+	}
 }

@@ -45,13 +45,13 @@ public class LinkedList {
 			tempNode=tempNode.getNext();
 		}
 		this.tail=tempNode;
-		INode temp2=tempNode.getNext();
+		tempNode=tempNode.getNext();
 		tail.setNext(null);
-		return temp2;
+		return tempNode;
 	}
 	public <K> boolean search(K x) { 
         INode tempNode = head;
-        while (tempNode != null) 
+        while (tempNode != null && tempNode.getNext() != null) 
         { 
             if (tempNode.getKey() == x) 
                 return true;  
@@ -62,7 +62,7 @@ public class LinkedList {
 	public <K> void insertAfterSearch (K x, INode newNode) {
 		int flag=0;
 		INode tempNode = head;
-        while (tempNode != null) 
+        while (tempNode != null&& tempNode.getNext() != null) 
         { 
             if (tempNode.getKey() == x) {
             	flag=1;
@@ -75,6 +75,31 @@ public class LinkedList {
     		tempNode.setNext(newNode);
     		newNode.setNext(tempNode2);
  		}
+	}
+	public <K> void searchAndDelete (K x) {
+		int flag=0;
+		INode tempNode = head;
+        while (tempNode != null&& tempNode.getNext() != null) 
+        { 
+            if (tempNode.getNext().getKey() == x) {
+            	flag=1;
+            	break;
+            }
+            tempNode = tempNode.getNext(); 
+        } 
+ 		if (flag==1) {
+ 	        INode tempNode2 = tempNode.getNext().getNext(); 
+    		tempNode.setNext(tempNode2);
+ 		}
+	}
+	public int size() {
+		int count=0;
+		INode tempNode = head;
+        while (tempNode != null) {
+        	count++;
+            tempNode = tempNode.getNext(); 
+        }
+        return count;
 	}
 	public void printMyNodes() {
 		StringBuffer nodes = new StringBuffer("All Nodes: ");
