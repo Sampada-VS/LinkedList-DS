@@ -12,6 +12,9 @@ public class StackDS {
 	public INode peak() {
 		return linkedList.head;
 	}
+	public INode pop() {
+		return linkedList.pop();
+	}
 	public void printStack() {
 		linkedList.printMyNodes();
 	}
