@@ -49,8 +49,7 @@ public class LinkedList {
 		tail.setNext(null);
 		return temp2;
 	}
-	public <K> boolean search(K x) 
-    { 
+	public <K> boolean search(K x) { 
         INode tempNode = head;
         while (tempNode != null) 
         { 
@@ -60,6 +59,23 @@ public class LinkedList {
         } 
         return false; 
     }
+	public <K> void insertAfterSearch (K x, INode newNode) {
+		int flag=0;
+		INode tempNode = head;
+        while (tempNode != null) 
+        { 
+            if (tempNode.getKey() == x) {
+            	flag=1;
+            	break;
+            }
+            tempNode = tempNode.getNext(); 
+        } 
+ 		if (flag==1) {
+ 	        INode tempNode2 = tempNode.getNext(); 
+    		tempNode.setNext(newNode);
+    		newNode.setNext(tempNode2);
+ 		}
+	}
 	public void printMyNodes() {
 		StringBuffer nodes = new StringBuffer("All Nodes: ");
 		INode tempNode=head;

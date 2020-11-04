@@ -110,4 +110,24 @@ public class TestLinkedList {
 		System.out.println("Element found :"+isFound);
 		assertTrue(isFound);
 	}
+	@Test
+	public void givenLinkedList_WhenSearchElementAndInsertAfterIt_ShouldReturnTrue() {
+		MyNode<Integer> firstNode = new MyNode<>(56);
+		MyNode<Integer> secondNode = new MyNode<>(30);
+		MyNode<Integer> thirdNode = new MyNode<>(70);
+		MyNode<Integer> fourthNode = new MyNode<>(40);
+		LinkedList linkedlist= new LinkedList();
+		linkedlist.add(firstNode);
+		linkedlist.append(secondNode);
+		linkedlist.append(thirdNode);
+
+		linkedlist.insertAfterSearch(30, fourthNode);
+		System.out.println("Linked list after element inserted next to searched element  == ");
+		linkedlist.printMyNodes();
+		boolean isInsertedAfterSearch= linkedlist.head.equals(firstNode) &&
+				linkedlist.head.getNext().equals(secondNode) &&
+				linkedlist.head.getNext().getNext().equals(fourthNode) &&
+				linkedlist.tail.equals(thirdNode);
+		assertTrue(isInsertedAfterSearch);
+	}
 }
