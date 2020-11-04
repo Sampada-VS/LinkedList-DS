@@ -20,5 +20,20 @@ public class TestQueueDS {
 		INode startNode=queueds.peak();
 		assertEquals(firstNode, startNode);
 	}
+	@Test
+	public void givenThreeElements_WhenDequeued_ShouldReturnFirstElement() {
+		QueueDS queueds= new QueueDS();
+		MyNode<Integer> firstNode = new MyNode<>(56);
+		MyNode<Integer> secondNode = new MyNode<>(30);
+		MyNode<Integer> thirdNode = new MyNode<>(70);
+		queueds.enque(firstNode);
+		queueds.enque(secondNode);
+		queueds.enque(thirdNode);
+		
+		INode poppedNode=queueds.dequeue();
+		System.out.println("Queue after popped ==");
+		queueds.printStack();
+		assertEquals(firstNode, poppedNode);
+	}
 
 }

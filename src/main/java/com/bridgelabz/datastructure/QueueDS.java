@@ -13,6 +13,9 @@ public class QueueDS {
 	public INode peak() {
 		return linked_list.head;
 	}
+	public INode dequeue() {
+		return linked_list.pop();
+	}
 	public void printStack() {
 		linked_list.printMyNodes();
 	}
