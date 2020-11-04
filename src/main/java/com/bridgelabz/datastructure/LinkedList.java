@@ -29,6 +29,11 @@ public class LinkedList {
 			this.tail=newNode;
 		}
 	}
+	public void insert (INode presentNode, INode newNode) {
+		INode tempNode= presentNode.getNext();
+		presentNode.setNext(newNode);
+		newNode.setNext(tempNode);
+	}
 	public void printMyNodes() {
 		StringBuffer nodes = new StringBuffer("All Nodes: ");
 		INode tempNode=head;

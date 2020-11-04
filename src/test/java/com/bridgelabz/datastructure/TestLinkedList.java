@@ -48,4 +48,20 @@ public class TestLinkedList {
 						linkedlist.tail.equals(thirdNode);
 		assertTrue(isAppended);
 	}
+	@Test
+	public void givenTwoNumbers_WhenInsertInLinkedList_ShouldInsertInBetween() {
+		MyNode<Integer> firstNode = new MyNode<>(56);
+		MyNode<Integer> secondNode = new MyNode<>(30);
+		MyNode<Integer> thirdNode = new MyNode<>(70);
+		LinkedList linkedlist= new LinkedList();
+		linkedlist.add(firstNode);
+		linkedlist.append(thirdNode);
+		linkedlist.insert(firstNode,secondNode);
+		System.out.println("Linked list by insert operation");
+		linkedlist.printMyNodes();
+		boolean isInserted= linkedlist.head.equals(firstNode) &&
+						linkedlist.head.getNext().equals(secondNode) &&
+						linkedlist.tail.equals(thirdNode);
+		assertTrue(isInserted);
+	}
 }
