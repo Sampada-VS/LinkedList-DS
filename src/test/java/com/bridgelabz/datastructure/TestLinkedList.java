@@ -64,4 +64,21 @@ public class TestLinkedList {
 						linkedlist.tail.equals(thirdNode);
 		assertTrue(isInserted);
 	}
+	@Test
+	public void givenLinkedList_WhenDeleteFirstElement_ShouldReturnRemainingList() {
+		MyNode<Integer> firstNode = new MyNode<>(56);
+		MyNode<Integer> secondNode = new MyNode<>(30);
+		MyNode<Integer> thirdNode = new MyNode<>(70);
+		LinkedList linkedlist= new LinkedList();
+		linkedlist.add(firstNode);
+		linkedlist.append(secondNode);
+		linkedlist.append(thirdNode);
+		INode poppedElement=linkedlist.pop();
+		System.out.println("Popped Element :"+poppedElement.getKey());
+		System.out.println("Linked list after pop operation");
+		linkedlist.printMyNodes();
+		boolean isPopped= linkedlist.head.equals(secondNode) &&
+						linkedlist.tail.equals(thirdNode);
+		assertTrue(isPopped);
+	}
 }
