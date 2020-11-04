@@ -96,4 +96,18 @@ public class TestLinkedList {
 						linkedlist.tail.equals(secondNode);
 		assertTrue(isPopped);
 	}
+	@Test
+	public void givenLinkedList_WhenSearchElement_ShouldReturnTrueIfPresent() {
+		MyNode<Integer> firstNode = new MyNode<>(56);
+		MyNode<Integer> secondNode = new MyNode<>(30);
+		MyNode<Integer> thirdNode = new MyNode<>(70);
+		LinkedList linkedlist= new LinkedList();
+		linkedlist.add(firstNode);
+		linkedlist.append(secondNode);
+		linkedlist.append(thirdNode);
+		
+		boolean isFound=linkedlist.search(30);
+		System.out.println("Element found :"+isFound);
+		assertTrue(isFound);
+	}
 }

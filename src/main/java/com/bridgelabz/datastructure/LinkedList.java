@@ -49,6 +49,17 @@ public class LinkedList {
 		tail.setNext(null);
 		return temp2;
 	}
+	public <K> boolean search(K x) 
+    { 
+        INode tempNode = head;
+        while (tempNode != null) 
+        { 
+            if (tempNode.getKey() == x) 
+                return true;  
+            tempNode = tempNode.getNext(); 
+        } 
+        return false; 
+    }
 	public void printMyNodes() {
 		StringBuffer nodes = new StringBuffer("All Nodes: ");
 		INode tempNode=head;
